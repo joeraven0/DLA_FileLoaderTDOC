@@ -1,0 +1,14 @@
+<project>
+ <title>TDOC File Loader</title>
+ <description>Loads file and finds serial number</description>
+ <author>Joakim Ringstad-Räävi</author>
+ <company>Datalogic Automation AB</company>
+ <version>RC1</version>
+ <script>main.qs</script>
+ <script>init.qs</script>
+ <script>loadFile.qs</script>
+ <script>loadXLP.qs</script>
+ <resource>area.png</resource>
+ <resource>logo.jpg</resource>
+ <resource>tdoc.xlp</resource>
+</project>
