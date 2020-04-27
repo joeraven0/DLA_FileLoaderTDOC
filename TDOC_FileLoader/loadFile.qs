@@ -1,12 +1,20 @@
+function textAdd(){
+    sn = app.loadText.text;
+    app.serialNumberLabel.text = sn;
+log("Character added!");    
+
+getSelectedDocument();    
+}
 function loadFile(){
     
     //Load the tdoc file *.010
-    print("Load file function");
+    log("ACTION:::loadFile()");
     var filePath = FileDialog.getOpenFileName("*.010*");
+    
     if(typeof(filePath) == "string"){
-	app.debugLabel.text = "Loaded: " + filePath;
-	print(filePath + " loaded");    
-	
+	app.tdocLabel.text = filePath;	
+	log("ACTION:::LOADED FILE: "+filePath);    
+		
 	var infile = new File(filePath);
 	infile.open(File.ReadOnly);
 	var fileContent = "";
@@ -27,12 +35,12 @@ function loadFile(){
 		//Find end position of s/n
 		if(fileContent[wordPosition+i]=="^"){
 		    var endPosition = wordPosition+i;
-		    print("FVKEY S/N found on START POS: "+ wordPosition + " END POS: "+endPosition);
+		    log("ACTION:::loadFile():FVKEY S/N found on START POS: "+ wordPosition + " END POS: "+endPosition);
 		    
 		    for(var j=wordPosition+5;j<=endPosition-1;j++){
 			sn += fileContent[j];
 		    }
-		    print("S/N: " + sn+"\n");
+		    log("ACTION:::loadFile():FOUND SERIAL NUMBER: " + sn);
 		    app.serialNumberLabel.text = sn;
 		    break;
 		}
@@ -40,11 +48,12 @@ function loadFile(){
 	    } 
 	   
 	}else{
-		print("SN Not found!");
-		app.debugLabel.text = "ERROR: No serial number found!";
+	    log("ACTION:::loadFile():DID NOT FIND SERIAL NUMBER!");
+		app.serialNumberLabel.text = "ERROR: No serial number found!";
+		sn = "TDOC FILE ERROR!";
 		
 	
-	}	 loadXLP();
+	}	 getSelectedDocument();
     }
 	    
 }
