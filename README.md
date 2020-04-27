@@ -1,3 +1,4 @@
 # DLA_LM_FileLoaderTDOC
+Either load serial number from TDOC-file or entered manually by operator. Simply replaces the string content inside marking file.
 
-![Image description](gui-20191227.png)
+![LM GUI](gui-20191227.png)
