@@ -61,6 +61,7 @@ function onClose()
 }
 var allDocuments = [""];
 function loadDocuments(){
+    
     var documentsList = System.getDocumentsList();
     var list = "";
     DocsDir = new Dir(System.getDocumentsDir());
@@ -83,7 +84,7 @@ function main()
   System.sigLaserEnd.connect(onLaserEnd);
   System["sigLaserError(int)"].connect(onLaserError);
   System.sigClose.connect(onClose);
-
+  
   
   
   // TODO
@@ -110,6 +111,7 @@ function main()
    app.infoButton["sigReleased()"].connect(infoAppShowFunction);
    app.tdocfileSelectorStringFieldRadioButton["sigClicked()"].connect(bulletSelectorGetStringFieldContent);
    app.tdocfileSelector010FileRadioButton["sigClicked()"].connect(bulletSelectorGetFileContent);
+   app.datafield1Checkbox["sigStateChanged(int)"].connect(timestampToggle);
   
   
   log("Laser status:  "+ System.getProcessState());
