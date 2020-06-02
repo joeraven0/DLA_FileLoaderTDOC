@@ -12,7 +12,7 @@ function initApp(){
     app.tdocLabel = new Label();
 
     app.statusLabel = new Label();
-    app.tdocLabelGroupBox = new GroupBox("TDOC File loader");
+    app.tdocLabelGroupBox = new GroupBox("TDOC File loader");    
     app.tdocfileSelectorStringFieldRadioButton = new RadioButton("Manual input",true);
     app.tdocfileSelector010FileRadioButton = new RadioButton("From .010 file");
     app.statusLabelGroupBox = new GroupBox("Laser status");
@@ -25,6 +25,7 @@ function initApp(){
     app.previewButton = new PushButton("Preview");
     //app.previewButton = new PushButton("Preview", System.getProjectDir()+"/area.png");
     app.documents = new ComboBox("", [""]);
+    app.datafield1Checkbox = new CheckBox("Activate timestamp");
     
    
     
@@ -57,6 +58,7 @@ function initApp(){
     app.loadFileButton.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
     app.infoButton.font = "MS Shell Dlg 2,6,-1,5,50,0,0,0,0,0";
     app.documents.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
+    app.datafield1Checkbox.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
     
     
     
@@ -77,6 +79,7 @@ function initApp(){
     app.serialNumberGroupBox.add(app.serialNumberLabel);
     app.Controller.add(app.documentGroupBox);
     app.documentGroupBox.add(app.documents);
+    app.documentGroupBox.add(app.datafield1Checkbox);
     app.Controller.add(app.statusLabelGroupBox); 
     app.Controller.add(app.infoButton);
     app.statusLabelGroupBox.add(app.statusLabel);
@@ -106,6 +109,7 @@ function initApp(){
     
     //First run initialization
      app.loadFileButton.hide();
+
 
 }
 
