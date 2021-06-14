@@ -17,15 +17,21 @@ function initApp(){
     app.tdocfileSelector010FileRadioButton = new RadioButton("From .010 file");
     app.statusLabelGroupBox = new GroupBox("Laser status");
     app.serialNumberLabel = new Label();
-    app.serialNumberGroupBox = new GroupBox("Serial number to mark");
+    app.serialNumberGroupBox = new GroupBox("Last input string");
     app.documentGroupBox = new GroupBox("Select marking file");
     
     app.loadFileButton = new PushButton("Load file");
-    app.loadText = new LineEdit("Input content","");
+    app.loadTextSN = new LineEdit("Serial number");
+    app.loadText1 = new LineEdit("Input field 1","");
+    app.loadText2 = new LineEdit("Input field 2","");
+    app.loadText3 = new LineEdit("Input field 3","");
     app.previewButton = new PushButton("Preview");
     //app.previewButton = new PushButton("Preview", System.getProjectDir()+"/area.png");
     app.documents = new ComboBox("", [""]);
-    app.datafield1Checkbox = new CheckBox("Activate timestamp");
+    app.datafieldSNCheckbox = new CheckBox("Activate SN");
+    app.datafield1Checkbox = new CheckBox("Activate field 1 (date compatible)");
+    app.datafield2Checkbox = new CheckBox("Activate field 2");
+    app.datafield3Checkbox = new CheckBox("Activate field 3");
     
    
     
@@ -58,7 +64,10 @@ function initApp(){
     app.loadFileButton.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
     app.infoButton.font = "MS Shell Dlg 2,6,-1,5,50,0,0,0,0,0";
     app.documents.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
+    app.datafieldSNCheckbox.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
     app.datafield1Checkbox.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
+    app.datafield2Checkbox.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
+    app.datafield3Checkbox.font = "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0";
     
     
     
@@ -73,13 +82,19 @@ function initApp(){
     app.tdocLabelGroupBox.add(app.tdocfileSelectorStringFieldRadioButton);
     app.tdocLabelGroupBox.add(app.tdocfileSelector010FileRadioButton);
     app.tdocLabelGroupBox.add(app.loadFileButton);
-    app.tdocLabelGroupBox.add(app.loadText);
+    app.tdocLabelGroupBox.add(app.loadTextSN);
+    app.tdocLabelGroupBox.add(app.loadText1);
+     app.tdocLabelGroupBox.add(app.loadText2);
+      app.tdocLabelGroupBox.add(app.loadText3);
     
     app.Controller.add(app.serialNumberGroupBox);
     app.serialNumberGroupBox.add(app.serialNumberLabel);
     app.Controller.add(app.documentGroupBox);
     app.documentGroupBox.add(app.documents);
+    app.documentGroupBox.add(app.datafieldSNCheckbox);
     app.documentGroupBox.add(app.datafield1Checkbox);
+    app.documentGroupBox.add(app.datafield2Checkbox);
+    app.documentGroupBox.add(app.datafield3Checkbox);
     app.Controller.add(app.statusLabelGroupBox); 
     app.Controller.add(app.infoButton);
     app.statusLabelGroupBox.add(app.statusLabel);
@@ -104,7 +119,7 @@ function initApp(){
     //Styling
     
     
-    app.font = "MS Shell Dlg 2,15,-1,5,50,0,0,0,0,0"; 
+    app.font = "Lucida Sans,15,-1,5,50,0,0,0,0,0"; 
     app.font.style = "Italic";
     
     //First run initialization

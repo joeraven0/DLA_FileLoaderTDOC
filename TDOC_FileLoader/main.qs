@@ -103,7 +103,10 @@ function main()
  
   
   //Trigger actions
-   app.loadText["sigTextChanged(QString)"].connect(textAdd);
+  app.loadTextSN["sigTextChanged(QString)"].connect(textAddSN);
+   app.loadText1["sigTextChanged(QString)"].connect(textAdd1);
+   app.loadText2["sigTextChanged(QString)"].connect(textAdd2);
+   app.loadText3["sigTextChanged(QString)"].connect(textAdd3);
   app.documents["sigIndexChanged(QString)"].connect(getSelectedDocument);
   app.loadFileButton["sigReleased()"].connect(loadFile);
   app.previewButton["sigReleased()"].connect(preview);
@@ -111,7 +114,10 @@ function main()
    app.infoButton["sigReleased()"].connect(infoAppShowFunction);
    app.tdocfileSelectorStringFieldRadioButton["sigClicked()"].connect(bulletSelectorGetStringFieldContent);
    app.tdocfileSelector010FileRadioButton["sigClicked()"].connect(bulletSelectorGetFileContent);
-   app.datafield1Checkbox["sigStateChanged(int)"].connect(timestampToggle);
+   app.datafieldSNCheckbox["sigStateChanged(int)"].connect(checkboxStateChanged);
+   app.datafield1Checkbox["sigStateChanged(int)"].connect(checkboxStateChanged);
+   app.datafield2Checkbox["sigStateChanged(int)"].connect(checkboxStateChanged);
+   app.datafield3Checkbox["sigStateChanged(int)"].connect(checkboxStateChanged);
   
   
   log("Laser status:  "+ System.getProcessState());
