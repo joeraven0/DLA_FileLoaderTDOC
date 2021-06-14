@@ -1,6 +1,10 @@
-function loadXLP(xlpFilename){
-    //Fortsätt här!!!!!!!!!!!!!!!!!!!!!!!
-    
+function timestampToggle(){
+    //Toggle timestamp in marking file - if checkbox state change, reload marking file
+    log("ACTION:::timestampToggle():state: " + app.datafield1Checkbox.checked);
+    //Reload marking file
+   getSelectedDocument();
+}
+function loadXLP(xlpFilename){    
    app.theDoc.load(System.getDocumentsDir()+xlpFilename);  
    
    log("ACTION:::loadXLP():All project files loaded from: " + System.getDocumentsDir());
@@ -9,6 +13,9 @@ function loadXLP(xlpFilename){
    try{
  
        log("ACTION:::loadXLP():tryCATCH:Try exeption run");
+        string1state = app.datafield1Checkbox.checked;
+       app.theDoc.getLaserObject("data_field-1").enable=string1state;
+      
 if((sn!="")&&(sn!==("LOAD TDOC FILE!"))&&(sn!==("TDOC FILE ERROR!"))){
     var tmpObj = app.theDoc.getLaserObject("sn");   
    tmpObj.text = sn;
